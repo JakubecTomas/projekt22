@@ -21,7 +21,7 @@ if($keys_exists){
 	$content = "";
 	$content .= "<h2>Poptávka poukazu</h2>";
 	
-		// filtr prázdných hodnot
+	// filtr prázdných hodnot
 	$data = array_filter($data, function($value) {
 		return $value !== 'null' && $value !== ''; 
 	});

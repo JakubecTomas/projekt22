@@ -23,6 +23,10 @@ body {
     flex-direction: column;
 }
 
+html {
+    background-image: none;
+}
+
 nav,
 .header__block,
 .eco,
@@ -62,7 +66,7 @@ footer {
 .final-summary {
     margin: auto;
     box-shadow: none;
-    background-color: var(--bg__main-important);
+    background-color: rgb(242, 235, 227);
 }
 
 .gifted--final-summary-detail p {
@@ -88,17 +92,21 @@ footer {
     padding-bottom: 5px;
 }
 
-#gifted--remove-name,
-#gifted--remove-price {
+.print-white {
     background: white;
+    width: 75%;
+    margin: auto;
 }
 
 #gifted--remove-name {
     padding: 15px 0;
+
+
 }
 
 #gifted--remove-price {
     padding-bottom: 15px;
+
 }
 
 .final-information {

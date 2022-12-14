@@ -159,13 +159,9 @@ class Voucher {
 //vytvoření metody
 let poukazVyplneno = new Voucher(clientName, clientPhone, clientEmail, clientNote, variantVoucher, pickup, clientTreatment, finalPriceOnly, randomCode, clientforName, wish, getVariabilniSymbol);
 
-if(poukazVyplneno.provedeni == "papírová verze") {
-    poukazVyplneno.variabilniSymbol = "";
-}
 
-if(poukazVyplneno.provedeni == "papírová verze" && poukazVyplneno.vyzvednuti == null) {
-    poukazVyplneno.vyzvednuti = "v salonu";
-}
+// nacteni provedeni poukazu pro následný switch
+let vyberPoukazu = localStorage.getItem("_PROVEDENI POUKAZU");
 
 // odeslání na server
 let sendToServer = document.getElementById("final-page__link");
@@ -174,19 +170,29 @@ sendToServer.addEventListener('click', sendDataToServer);
 function sendDataToServer() {
 
 const form = new URLSearchParams(poukazVyplneno);
-fetch('https://www.kosmetika-daniela.cz/2022/scripts/mail_offer.php', { // !!!! po nahrání na server změnit na aktuální cestu !!!!!
+fetch('https://www.kosmetika-daniela.cz/22/scripts/mail_offer.php', { // !!!! po nahrání na server změnit na aktuální cestu !!!!!
   method: 'POST',
   body: form
 })
+.then(() => {
+    switch (vyberPoukazu){
+        case "papírová verze":
+        window.location.href = "voucher-success-paper.html";
+        break;
+        case "elektronická verze":
+        window.location.href = "voucher-final-offer.html";
+        break;
+    }
+    });
 }
 
-console.log(poukazVyplneno.email);
 
+// podmínky pro "hodnoty do e-mailu"
+if(poukazVyplneno.provedeni == "papírová verze") {
+    poukazVyplneno.variabilniSymbol = "";
+}
 
-// nextStep link dle logiky papírová verze VS elektronická
-if(document.getElementById("summary-variant-voucher").textContent == "papírová verze"){
-    document.querySelector("#final-page__link").setAttribute("href", "voucher-success-paper.html");
+if(poukazVyplneno.provedeni == "papírová verze" && poukazVyplneno.vyzvednuti == null) {
+    poukazVyplneno.vyzvednuti = "v salonu";
 }
-else {
-    document.querySelector("#final-page__link").setAttribute("href", "voucher-final-offer.html");
-}
+

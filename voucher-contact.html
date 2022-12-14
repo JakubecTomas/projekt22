@@ -118,13 +118,13 @@
     <div class="select-variant-content-value">
     <div class="select-input" id="select-first">
         <input type="radio" id="papirova-verze" name="version" value="papírová verze" class="variant-radio" onclick="showSendPaper()">
-        <label for="papirova-verze">luxusní papírové</label>
+        <label for="papirova-verze">luxusní&nbsp;papírové</label>
         <p>Poukaz je v motivu francouzské kosmetiky Sothys Paris, provedení najdete ve fotogalerii.</p>
     </div>
 
     <div class="select-input" id="select-second">
         <input type="radio" id="elektronicka-verze" name="version" value="elektronická verze" class="variant-radio" checked onclick="hiddenSendPaper()">
-        <label for="elektronicka-verze">elektronické na&nbsp;e&ndash;mail</label>
+        <label for="elektronicka-verze">elektronické&nbsp;na&nbsp;e&ndash;mail</label>
         <p>Vámi sestavený poukaz si na závěr vytisknete na klasický formát papíru A4.</p>
     </div>
     </div>
@@ -180,21 +180,23 @@
         <div class="send-voucher-courier">
             <img src="images/icon/letter.png" alt="ikona odeslaní poukazu kurýrem">
                 <input type="checkbox" id="ship-letter" class="send-letter" value="odeslat na adresu">
-                <label for="ship-letter" class="hovertext" data-hover="Standartní vyzvednutí je v salonu po telefonické domluvě  s kosmetičkou.">Odeslat papírový poukaz na Vaši adresu (+ 120 Kč)</label>
+                <label for="ship-letter" class="hovertext" data-hover="Standartní vyzvednutí je v salonu po telefonické domluvě  s kosmetičkou.">Odeslat poukaz na Vaši adresu (+ 120 Kč)</label>
         </div>
 
         <div class="send-paper-voucher">
 
-            <div class="send-paper-voucher-header">Vyberte si, které údaje chcete uvést na poukaz:</div>
+            <div class="send-paper-voucher-header">Vyberte si, které údaje chcete uvést na&nbsp;poukaz:</div>
 
             <div class="send-data-to-voucher">
                 <input type="checkbox" id="nameTreatments" name="name-treatments" value="název ošetření" checked>
-                <p>název ošetření</p>
+                <label for="nameTreatments">název ošetření</label>
+
             </div>
 
             <div class="send-data-to-voucher">
                 <input type="checkbox" id="valueTreatments" name="value-treatments" value="hodnota ošetření" checked>
-                <p>hodnota ošetření</p>
+                <label for="valueTreatments">hodnota ošetření</label>
+
             </div>
 
             <div id="errorEmptyCheckboxData"><img src="images/icon/warning.png" alt="ikona upozornění">minimálně jeden údaj je povinný</div>

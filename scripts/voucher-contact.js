@@ -138,8 +138,6 @@ localStorage.setItem("obdarovanyPrani", document.querySelector("#wish-note").val
 
 
 
-// !!!!!!!!!!! i přes zobrazenou chybu se odešle......
-
 // zaverecna validace a zmena odkazu na sumar (různý sumář dle výběru hodnota VS ošetření)
 if(document.querySelector("#errorEmptyNameClient").style.display == 'none' && document.querySelector("#errorPhone").style.display == 'none' && document.querySelector("#errorEmptyEmail").style.display == 'none' && document.querySelector("#errorEmptyGifted").style.display == 'none' && document.querySelector("#errorEmptyCheckboxData").style.display == 'none' && document.getElementById("value-or-offer").textContent == "s vybranou hodnotou"){
     document.querySelector("#ValidateNext").setAttribute("href", "voucher-summary-value.html");

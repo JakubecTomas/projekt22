@@ -1,3 +1,6 @@
+// clear localStorage - čistý začátek
+localStorage.clear();
+
 // textarea (index) pro jinou hodnotu
 function ShowTextarea() {
 
@@ -19,23 +22,6 @@ function ShowTextarea() {
 // ---------------------
 // PRÁCE S DATABÁZÍ
 // ---------------------
-
-// akordeon pro více info
-var more = document.getElementsByClassName("more");
-var i;
-
-for (i = 0; i < more.length; i++) {
-  more[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var moreInfo = this.nextElementSibling;
-    if (moreInfo.style.display === "grid") {
-        moreInfo.style.display = "none";
-    }
-    else 
-        moreInfo.style.display = "grid";
-    
-  });
-}
 
 // vybrané ošetření z nabídky + uložení do localStorage
 function getRadioValue() {

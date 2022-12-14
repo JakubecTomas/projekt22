@@ -7,14 +7,18 @@ let nextStep = document.getElementById("odeslatHodnotu");
 
 function toLocalStorage() {
 
+localStorage.setItem("predchozi", "hodnota");
 
     let voucherValue = document.getElementById("paper-value");
     let value = voucherValue.value;
     let noteForm = document.getElementById("textareaInput");
     let noteValue = noteForm.value;
+
     
+
     if (value !=="") {
         localStorage.setItem("hodnotaVyber",value);
+        
         error.textContent = "";
         error.style.display = "none";
 
@@ -25,11 +29,10 @@ function toLocalStorage() {
             if (value == "jinaHodnota" && noteValue == "") {
                 error.textContent = "Vyberte hodnotu poukazu";
                 error.style.display = "grid"
-                nextStep.removeAttribute("href");
             }
 
-            else
-                nextStep.setAttribute("href", "voucher-contact.html");
+            // else
+            //     nextStep.setAttribute("href", "voucher-contact.html");
     }
 
     else {
@@ -37,6 +40,10 @@ function toLocalStorage() {
         error.style.display = "grid"
     }
     
+if(value !=="") {
+    nextStep.setAttribute("href", "voucher-contact.html");
+}
 
-    localStorage.setItem("predchozi", "hodnota");
+
+
 }

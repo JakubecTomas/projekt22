@@ -210,6 +210,8 @@ dtb ošetření - poukaz
     padding-left: 2rem;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    border-bottom: 1px solid var(--second-color);
+    padding-bottom: 1rem;
 }
 
 .offer-detail p {
@@ -217,22 +219,22 @@ dtb ošetření - poukaz
     padding: 10px 0;
 }
 
+.dtb-not-border {
+    border-bottom: none;
+}
+
+
 .more {
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 10px 0 20px 2rem;
+    padding: 10px 0 5px 2rem;
     width: 100%;
     color: var(--main-color);
     text-decoration: none;
-    cursor: pointer;
-}
-
-.more:hover {
-    text-decoration: underline;
 }
 
 .more-info {
-    display: none;
+    font-size: 1.2rem;
     padding: 20px;
     margin: 15px 2rem;
     background-color: white;
@@ -253,16 +255,41 @@ dtb ošetření - poukaz
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
-
 .select-input input[type="radio"]:checked {
     padding: 43px;
 }
+
+@-moz-document url-prefix() {
+    .offer--main input[type="radio"]:checked+.offer-detail label::before,
+    .select-input input[type="radio"]:checked+label::after {
+        content: "[VYBRÁNO]";
+        font-size: .8rem;
+        font-weight: bold;
+        color: white;
+        background-color: var(--main-color);
+        margin-right: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        z-index: 1;
+    }
+    .select-input input[type="radio"]:checked+label::after {
+        margin-left: 15px;
+    }
+    .select-input input[type="radio"]:checked {
+        padding: 44px;
+    }
+}
+
+
 
 .voucher-footer {
     display: flex;
@@ -320,6 +347,7 @@ dtb ošetření - poukaz
     justify-content: center;
 }
 
+.next-step button,
 .next-step a {
     margin: auto;
     border: 2px var(--frm-highlight) solid;
@@ -336,7 +364,9 @@ dtb ošetření - poukaz
     transition: 500ms;
 }
 
+.next-step button:hover,
 .next-step a:hover,
+.next-step button:focus,
 .next-step a:focus {
     background-image: linear-gradient(90deg, #C3B29F, #BD9F7C, #C3B29F);
     opacity: 0.7;
@@ -351,9 +381,10 @@ dtb ošetření - poukaz
     margin-bottom: -15px;
 }
 
-.next-step button {
-    background-color: white;
+.print-send button {
+    background-image: linear-gradient(90deg, #C3B29F, #BD9F7C, #C3B29F);
     color: black;
+    font-size: 1.3rem;
     border: 2px white solid;
     padding: 35px 45px 40px 45px;
     border-radius: 10px;
@@ -364,8 +395,10 @@ dtb ošetření - poukaz
     margin: 2rem 3rem;
 }
 
-.next-step button:hover {
-    border: 2px var(--frm-active) solid;
+.print-send p {
+text-align: center;
+padding: 15px 5%;
+font-size: 1.1rem;
 }
 
 /* -----------------------------
@@ -473,17 +506,19 @@ KONTAKTNÍ ÚDAJE
 }
 
 .send-paper-voucher-header {
-    width: 100%;
     font-size: 1.5rem;
     margin-top: 50px;
     margin-bottom: 30px;
     font-weight: bold;
+    padding: 0 10%;
 }
 
 .send-data-to-voucher {
     display: flex;
     flex-direction: row;
-    margin-bottom: 25px;
+    width: 80%;
+    margin: auto;
+     margin-bottom: 25px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -496,6 +531,7 @@ KONTAKTNÍ ÚDAJE
 .send-voucher-courier {
     display: none;
     flex-direction: row;
+    width: 80%;
     margin-bottom: 50px;
     margin-top: 60px;
     background-color: white;
@@ -518,6 +554,7 @@ KONTAKTNÍ ÚDAJE
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    flex-shrink: 0;
     background-color: white;
     margin: 0;
     padding: 0;
@@ -528,6 +565,7 @@ KONTAKTNÍ ÚDAJE
     display: grid;
     place-content: center;
     cursor: pointer;
+
 }
 
 .send-paper-voucher input[type="checkbox"]::before,
@@ -580,13 +618,13 @@ KONTAKTNÍ ÚDAJE
     width: 400px;
     background-color: white;
     color: var(--frm-highlight);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
-    padding: 20px 30px;
+    padding: 20px 0px;
     transition: opacity 1s ease-in-out;
     position: absolute;
     z-index: 1;
-    left: -100px;
+    left: -130px;
     top: 130%;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -652,6 +690,13 @@ KONTAKTNÍ ÚDAJE
     font-weight: bold;
     margin-top: 2rem;
     cursor: auto;
+}
+
+.send-data-to-voucher label {
+    font-weight: normal;
+    margin-top: 0;
+    padding-left: 20px;
+    cursor: pointer;
 }
 
 .send-voucher-courier label {
@@ -1205,6 +1250,56 @@ font-size: 20px;
     -ms-transition: 700ms;
     -o-transition: 700ms;
 }
+
+@-moz-document url-prefix() {
+
+    .offer--main input[type="radio"]:checked+.offer-detail label::after {
+        content: "[VYBRÁNO]";
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: white;
+        background-color: var(--main-color);
+        margin-left: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        z-index: 1;
+    }
+
+    .select-variant-content h3 {
+        margin: 0;
+    }
+
+    .offer--main input[type="radio"]:checked+.offer-detail label::before {
+    content: none;
+    }
+
+    .select-input input[type="radio"]:checked+label::after {
+        margin-left: 10px;
+        content: "<<VYBRÁNO";
+    }
+
+    .select-input input[type="radio"]+label {
+        /* padding-left: 65px; */
+        padding-left: 5px;
+        font-size: 1.2rem;
+        z-index: 2;
+    }
+
+    .select-input input[type="radio"]:checked+label {
+        padding-left: 20px;
+        font-size: 1rem;
+        z-index: 2;
+    }
+    #select-second input[type="radio"]:checked+label {
+        padding-left: 35px;
+    }
+
+}
+
 
 .dtb--offer li {
     margin: 0 15%;
